@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom"
 import './stylesheets/About.css'
 const About = () => {
   return (
@@ -23,7 +24,7 @@ const About = () => {
               <br />
               <span>Your van is ready.</span>
             </h1>
-            <button>Explore our vans</button>
+            <Link className="link-button" to="/vans">Explore our vans</Link>
           </div>
         </section>
       </section>

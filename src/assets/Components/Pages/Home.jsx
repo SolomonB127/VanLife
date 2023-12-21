@@ -1,5 +1,6 @@
 import React from 'react'
 import './stylesheets/Home.css'
+import { Link } from "react-router-dom"
 const Home = () => {
   return (
     <main>
@@ -12,7 +13,7 @@ const Home = () => {
             Rent the perfect van to make your perfect road trip.
           </p>
 
-          <button>Find your Van</button>
+          <Link to="vans">Find your van</Link>
         </div>
       </section>
     </main>

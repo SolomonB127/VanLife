@@ -19,12 +19,19 @@
     font-size: 1.5rem;
 }
 
-.home--coverimg button{
-    background-color: orangered;
-    color: #fff;
-    border-radius: 0.3rem;
-    outline: none;
+.home--coverimg a{
+    margin-left: 30%;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    background-color: #FF8C38;
     border: none;
-    width: 20%;
-    height: 40px;
+    width: 40%;
+    margin-top: 27px;
+    padding-block: .75rem;
+    color: white;
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform .1s ease-in-out;
 }
