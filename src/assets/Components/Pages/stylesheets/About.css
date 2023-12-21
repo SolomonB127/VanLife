@@ -1,0 +1,35 @@
+.about--coverimg {
+    background-image: url('src/assets/Components/Images/image 54.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+}
+
+.about--maintext h1{
+    font-weight: bolder;
+    font-size: 2.5rem;
+    text-align: center;
+}
+.about--maintext h4{
+    font-weight: bolder;
+    font-size: 1.5rem;
+    text-align: center;
+}
+.about--end--section{
+    background-color: #deb887;
+}
+.about--end--section h1{
+    color: #000;
+}
+
+.about--end--section button{
+    background-color: #000;
+    color: #fff;
+    border-radius: 0.5rem;
+    outline: none;
+    border: none;
+    width: 20%;
+    height: 40px;
+    font-weight: bolder;
+}
