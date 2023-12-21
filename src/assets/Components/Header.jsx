@@ -1,19 +1,30 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import './Header.css'
 const Header = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setMenuOpen(prevMenuOpen => !prevMenuOpen);
+    };
   return (
    <nav>
     <Link to="/" className='title'>VanLife</Link>
-    <ul>
+
+    <div className='menu' >
+        <span onClick={toggleMenu}>&#9776;</span>
+    </div>
+
+    <ul className={menuOpen ? "open" : " "}>
         <li>
-            <Link to="/about"> About</Link>
+            <NavLink to="/about"> About</NavLink>
         </li>
         <li>
-            <Link to="/van"> Vans</Link>
+            <NavLink to="/van"> Vans</NavLink>
         </li>
         <li>
-            <Link to="/contact"> Contact</Link>
+            <NavLink to="/contact"> Contact</NavLink>
         </li>
     </ul>
    </nav>
