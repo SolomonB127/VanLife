@@ -31,7 +31,7 @@ nav ul li a{
     text-decoration: none;
     color: #fff;
     padding: 0.5rem;
-    margin: 0 0,5rem;
+    margin: 0 0.5rem;
     border-radius: 0.5rem;
 }
 
@@ -75,7 +75,7 @@ nav ul .open{
         display: none;
         flex-direction: column;
         width: 100%;
-        margin-bottom: 0.25%;
+        margin-bottom: 10px;
     }
 
     nav ul li{

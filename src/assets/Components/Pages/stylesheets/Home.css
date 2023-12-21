@@ -1,0 +1,30 @@
+.home--coverimg {
+    background-image: url('src/assets/Components/Images/image 53.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 550px;
+}
+
+.home--coverimg h1{
+    text-align: center;
+    color: #fff;
+    font-weight: bolder;
+    font-size: 3rem;
+}
+.home--coverimg p{
+    text-align: center;
+    color: #fff;
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+
+.home--coverimg button{
+    background-color: orangered;
+    color: #fff;
+    border-radius: 0.3rem;
+    outline: none;
+    border: none;
+    width: 20%;
+    height: 40px;
+}
