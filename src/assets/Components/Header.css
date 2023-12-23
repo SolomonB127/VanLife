@@ -1,3 +1,4 @@
+/* Header */
 .active{
     background-color: #1d4ed8;
 }
@@ -61,6 +62,8 @@ nav ul .open{
     display: flex;
 }
 
+
+/* Media-Queries */
 @media (max-width: 480px) {
     nav .menu{
         display: flex;
