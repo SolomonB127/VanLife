@@ -1,4 +1,4 @@
-// An mirror backend service
+// A mirror backend service
 import { createServer, Model } from "miragejs";
 
 import ModestExplorer from  './assets/Components/Images/Modest-Explorer.png';
