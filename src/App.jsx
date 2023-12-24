@@ -5,8 +5,10 @@ import Home from './assets/Components/Pages/Home';
 import About from './assets/Components/Pages/About';
 import Vans from './assets/Components/Pages/Vans';
 import VansDetails from './assets/Components/Pages/VansDetails';
-import Footer from './assets/Components/Footer';
 import './server.js'
+import Dashboard from './assets/Components/Pages/Host/Dashboard';
+import Income from './assets/Components/Pages/Host/Income';
+import Reviews from './assets/Components/Pages/Host/Reviews';
 function App() {
   return (
     <>
@@ -17,10 +19,11 @@ function App() {
           <Route path='/about'  element={ <About /> } />
           <Route path='/van'  element={ <Vans/> } />
           <Route path='/van/:id'  element={ <VansDetails/> } />
+          <Route path='/host'  element={ <Dashboard/> } />
+          <Route path='/host/income'  element={ <Income/> } />
+          <Route path='/host/reviews'  element={ <Reviews/> } />
         </Route>
       </Routes>
-
-      <Footer />
     </div>
     </>
   )
