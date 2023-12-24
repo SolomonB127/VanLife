@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import Header from './assets/Components/Header'
+import  Layout from './assets/Components/Layout';
 import './App.css';
 import Home from './assets/Components/Pages/Home';
 import About from './assets/Components/Pages/About';
@@ -11,13 +11,13 @@ function App() {
   return (
     <>
     <div className='App'>
-      <Header />
-
       <Routes>
-        <Route path='/'  element={ <Home /> } />
-        <Route path='/about'  element={ <About /> } />
-        <Route path='/van'  element={ <Vans/> } />
-        <Route path='/van/:id'  element={ <VansDetails/> } />
+        <Route element={ <Layout /> }>
+          <Route path='/'  element={ <Home /> } />
+          <Route path='/about'  element={ <About /> } />
+          <Route path='/van'  element={ <Vans/> } />
+          <Route path='/van/:id'  element={ <VansDetails/> } />
+        </Route>
       </Routes>
 
       <Footer />
