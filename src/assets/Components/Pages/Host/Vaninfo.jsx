@@ -72,7 +72,7 @@ const Vaninfo = () => {
           </NavLink>
         </>
       </section>
-      <Outlet />
+      <Outlet  context={ [ vanDetails ]}/>
     </main>
   )
 }
