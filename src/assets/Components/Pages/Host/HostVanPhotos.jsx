@@ -5,7 +5,7 @@ const HostVanPhotos = () => {
   const [vanDetails] = useOutletContext();
   return (
     <section >
-      <img src={vanDetails.imageUrl} alt=""  className="host-van-detail-image"/>
+      <img src={vanDetails.imageUrl} alt={`photo of ${vanDetails.name}`} className="host-van-detail-image"/>
     </section>
   )
 }

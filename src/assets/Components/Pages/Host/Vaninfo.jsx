@@ -33,7 +33,7 @@ const Vaninfo = () => {
 
       <section className="host-van-detail-layout-container">
         <div className="host-van-detail">
-          <img src={vanDetails.imageUrl} />
+          <img src={vanDetails.imageUrl}  alt={`photo of ${vanDetails.name}`}/>
           <div className="host-van-detail-info-text">
             <i
               className={`van-type van-type-${vanDetails.type}`}
