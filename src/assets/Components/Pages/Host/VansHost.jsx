@@ -1,16 +1,19 @@
 import React from 'react';
 import './stylesheets/VansHost.css';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 const VansHost = () => {
+  // Initialisation of state
   const [vanHost, setVanHost] = useState([]);
 
+  //useEffect for api(mirage.js)  fetching
   useEffect(() => {
     fetch("/api/host/vans")
       .then(res => res.json())
         .then(data => setVanHost(data.vans))
   }, []);
 
+  // Mapping over data 
   const listElements = vanHost.map(van => (
     <Link to={`/host/vanshost/${van.id}`} key={van.id}  className="host-van-link-wrapper">
 
