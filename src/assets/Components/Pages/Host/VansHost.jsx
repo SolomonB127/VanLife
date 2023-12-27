@@ -15,7 +15,7 @@ const VansHost = () => {
 
   // Mapping over data 
   const listElements = vanHost.map(van => (
-    <Link to={`/host/vanshost/${van.id}`} key={van.id}  className="host-van-link-wrapper">
+    <Link to={van.id} key={van.id}  className="host-van-link-wrapper">
 
       <div className="host-van-single" key={van.id}>
         <img src={van.imageUrl} alt={`Photo of ${van.name}`} />
