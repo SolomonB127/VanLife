@@ -1,10 +1,10 @@
 import React from 'react';
 import './stylesheets/VanDetails.css';
-import { useParams } from 'react-router-dom';  // Imported useParams
+import { useParams, Link, useLocation } from 'react-router-dom';  // Imported useParams
 import { useState, useEffect } from 'react';      // Imported useState & Effect
 const VansDetails = () => {
     const params = useParams();
-
+    const location = useLocation();
     const [van, setVans] = useState(null);
 
    useEffect(() => {
@@ -13,9 +13,17 @@ const VansDetails = () => {
             .then(data => setVans(data.vans))
    }, [params.id])
    
+   const search = location.state?.search || ""
+   const type = location.state?.type || "all"
   return (
     <main>
         <section className='van-detail-main'>
+        <Link 
+            to={`..${search}`}
+            relative='path'  
+            className='back-button'>
+                &larr; <span>Back to {type} vans</span>
+        </Link>
             {
                 van ?  (
                 <div className="van-detail">

@@ -34,7 +34,11 @@ const Vans = () => {
   // Mapping over data 
   const vanElements = displayedVans.map(van => (
     <div key={van.id} className='van-title'>
-     <Link style={{textDecoration: "none"}} to={van.id} aria-label={`Value details for ${van.name}, priced at $${van.price} per day`}>
+     <Link style={{textDecoration: "none"}} 
+     to={van.id} 
+     aria-label={`Value details for ${van.name}, priced at $${van.price} per day`}
+     state={{ state: `?${searchParams}`,
+     type: typefilter}}>
        <img src={van.imageUrl}  alt={`Image of ${van.name}`} />
         <div className='van-info'>
           <h3>{van.name}</h3>
