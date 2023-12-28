@@ -9,7 +9,7 @@ background-color: #161616;
 color: white;
 }
 /* Media-Queries */
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     .not-found-container .link-button {
         width: 50%;
     }
