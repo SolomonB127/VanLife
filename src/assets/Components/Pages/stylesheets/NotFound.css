@@ -1,0 +1,16 @@
+.not-found-container {
+padding-inline: 26px;
+text-align: center;
+}
+
+.not-found-container .link-button {
+width: 10%;
+background-color: #161616;
+color: white;
+}
+/* Media-Queries */
+@media (max-width: 480px) {
+    .not-found-container .link-button {
+        width: 50%;
+    }
+}
