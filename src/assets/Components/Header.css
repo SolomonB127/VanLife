@@ -64,7 +64,7 @@ nav ul .open{
 
 
 /* Media-Queries */
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
     nav .menu{
         display: flex;
     }
@@ -89,4 +89,4 @@ nav ul .open{
     nav ul li a{
         margin: 0.2rem 0.5rem;
     }
-}
+} */
