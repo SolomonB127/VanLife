@@ -2,6 +2,7 @@ import React from 'react';
 import './stylesheets/Vans.css';
 import { useState, useEffect } from 'react';
 import { Link, useSearchParams  } from 'react-router-dom';
+import { getVans } from '../../../../api';
 const Vans = () => {
   // Declaration of Hooks
   // Initialisation of state
@@ -9,9 +10,11 @@ const Vans = () => {
 
   //useEffect for api(mirage.js)  fetching
   useEffect(() => {
-    fetch("api/vans")
-    .then(response => response.json())
-      .then(data => setVansData(data.vans));
+   async function loadVans(){
+    const data = await getVans()
+    setVansData(data)
+   }
+   loadVans();
   }, []);
 
   // Usage of useSearchParams for filtering
