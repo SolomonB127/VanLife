@@ -1,5 +1,35 @@
 /* Header */
-.active{
+
+header {
+    display: flex;
+    align-items: center;
+    padding-block: 10px;
+    background-color: #0f172a;
+    position: sticky;
+    top: 0;
+}
+
+header .site-logo {
+    color: #fff;
+    margin-right: auto;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 25px;
+}
+
+header a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    padding: 5px 20px;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+
+/* .active{
     background-color: #1d4ed8;
 }
 nav{
@@ -60,7 +90,7 @@ nav .menu span{
 
 nav ul .open{
     display: flex;
-}
+} */
 
 
 /* Media-Queries */

@@ -1,26 +1,21 @@
 /* HOME PAGE */
-.home--coverimg {
-    background: url('src/assets/Components/Images/HomeCover.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 550px;
-}
-
-.home--coverimg h1{
+.home-container h1 {
     text-align: center;
     color: #fff;
     font-weight: bolder;
     font-size: 3rem;
+    line-height: 42px;
 }
-.home--coverimg p{
+
+.home-container p {
     text-align: center;
     color: #fff;
     font-weight: bolder;
     font-size: 1.5rem;
+    line-height: 24px;
 }
 
-.home--coverimg a{
+.home-container a {
     margin-left: 30%;
     display: inline-block;
     text-align: center;
@@ -35,4 +30,8 @@
     border-radius: 5px;
     cursor: pointer;
     transition: transform .1s ease-in-out;
+}
+
+.home-container a:hover {
+    transform: translate(1px, 1px);
 }
