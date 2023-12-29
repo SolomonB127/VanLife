@@ -2,17 +2,27 @@ import React from 'react';
 import './stylesheets/Vans.css';
 import { useState, useEffect } from 'react';
 import { Link, useSearchParams  } from 'react-router-dom';
-import { getVans } from '../../../../api';
+import { getVans } from '../../../api';
 const Vans = () => {
   // Declaration of Hooks
   // Initialisation of state
   const [vansData, setVansData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
 
   //useEffect for api(mirage.js)  fetching
   useEffect(() => {
    async function loadVans(){
-    const data = await getVans()
-    setVansData(data)
+    setLoading(true)
+    try {
+      const data = await getVans()
+      setVansData(data)
+    } catch (error) {
+      setError(error)
+    } finally{
+      setLoading(false)
+    }
    }
    loadVans();
   }, []);
@@ -50,7 +60,16 @@ const Vans = () => {
         <i className={`van-type ${van.type} selected`}>{van.type}</i>
      </Link>
     </div>
-  ))
+  ));
+
+    if (loading){
+      return <h1 aria-live='polite'>Loading...</h1>
+    }
+
+    if (error){
+      return <h1  aria-live='assertive'>There was an error: {error.message}</h1>
+    }
+
   return (
     <main>
       <section className='vans--main'>
