@@ -15,7 +15,6 @@ const Header = () => {
         color: "burlywood"
     }
   return (
-   <nav>
       <header>
         <Link className="site-logo" to="/">VanLife</Link>
         <nav>
@@ -24,25 +23,6 @@ const Header = () => {
         <NavLink to="/van" style={({isActive}) => isActive ? activeStyles : null}>Vans</NavLink>
         </nav>
     </header>
-    
-    {/* <Link to="/" className='title'>VanLife</Link>
-
-    <div className='menu' >
-        <span onClick={toggleMenu}>&#9776;</span>
-    </div>
-
-    <ul className={menuOpen ? "open" : " "}>
-        <li>
-            <NavLink to="/host"> Host</NavLink>
-        </li>
-        <li>
-            <NavLink to="/about"> About</NavLink>
-        </li>
-        <li>
-            <NavLink to="/van"> Vans</NavLink>
-        </li>
-    </ul> */}
-   </nav>
   )
 }
 
