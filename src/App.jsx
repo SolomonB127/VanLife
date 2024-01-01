@@ -22,10 +22,10 @@ import HostVanDetail from './assets/Components/Pages/Host/HostVanDetail';
 import HostVanPricing from './assets/Components/Pages/Host/HostVanPricing';
 import HostVanPhotos from './assets/Components/Pages/Host/HostVanPhotos';
 import NotFound from './assets/Components/Pages/NotFound';
-
+import Error from './assets/Components/Error';
 // Setting up data router
 const allRoutes = createBrowserRouter(createRoutesFromElements(
-  <Route path='/' element={ <Layout /> }>
+  <Route path='/' element={ <Layout /> } errorElement={ <Error /> } >
     <Route  index element={ <Home /> } />
     <Route path='about'  element={ <About /> } />
     <Route path='van'  element={ <Vans/> } loader={vanLoader}/>

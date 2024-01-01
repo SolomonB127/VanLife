@@ -20,6 +20,7 @@ const Vans = () => {
   const typefilter = searchParams.get("type");
 
   const displayedVans = typefilter ? vansData.filter(van => van.type === typefilter) : vansData
+  
   // Declaration of handleFilterChange
   function  handleFilterChange(key, value){
     setSearchParams(prevParams => {
