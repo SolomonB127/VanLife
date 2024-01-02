@@ -27,3 +27,7 @@ header a {
 header a:hover {
     text-decoration: underline;
 }
+.login-link img{
+    position: relative;
+    top: 8px;
+}
