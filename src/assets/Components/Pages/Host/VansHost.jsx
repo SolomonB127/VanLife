@@ -2,6 +2,11 @@ import React from 'react';
 import './stylesheets/VansHost.css';
 import { useEffect, useState } from 'react';
 import { Link} from 'react-router-dom';
+
+export async function loader(){
+  return null
+}
+
 const VansHost = () => {
   // Initialisation of state
   const [vanHost, setVanHost] = useState([]);

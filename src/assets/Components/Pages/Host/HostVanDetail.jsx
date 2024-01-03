@@ -1,6 +1,10 @@
 import React from 'react';
 import { useOutletContext } from 'react-router-dom';
 import './stylesheets/Vansinfo.css';
+
+export async function loader(){
+  return null
+}
 const HostVanDetail = () => {
   const [vanDetails] = useOutletContext();
   return (

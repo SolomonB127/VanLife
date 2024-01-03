@@ -2,6 +2,12 @@ import React from 'react';
 import './stylesheets/Vansinfo.css';
 import { useState, useEffect } from 'react';
 import { useParams , Link, Outlet, NavLink} from 'react-router-dom';
+
+
+export async function loader(){
+  return null
+}
+
 const Vaninfo = () => {
   const { id } = useParams(); //This useParams is the de-structured form of the one used in Vansdetails.
 

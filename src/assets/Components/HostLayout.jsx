@@ -1,6 +1,10 @@
 import React from 'react';
 import './Hostlayout.css';
 import { NavLink, Outlet } from 'react-router-dom'
+
+export function loader(){
+  return null
+}
 const HostLayout = () => {
   const activeStyles =  {
     fontWeight: "bold",
@@ -8,6 +12,7 @@ const HostLayout = () => {
     color: "#161616",
     backgroundColor: "#fff"
   }
+
   return (
     <>
         <main className='host-nav'>
