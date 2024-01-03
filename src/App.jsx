@@ -17,7 +17,7 @@ import Income, {loader as hostVanIncomeLoader} from './assets/Components/Pages/H
 import Reviews, {loader as hostVanRevsLoader} from './assets/Components/Pages/Host/Reviews';
 import VansHost, {loader as hostVanLoader} from './assets/Components/Pages/Host/VansHost';
 import Vaninfo, {loader as hostVanInfoLoader} from './assets/Components/Pages/Host/Vaninfo';
-import HostVanDetail, {loader as hostVanDetsLoader} from './assets/Components/Pages/Host/HostVanDetail';
+import HostVanDetail, {loader as hostVanDetailsLoader} from './assets/Components/Pages/Host/HostVanDetail';
 import HostVanPricing, {loader as hostVanPriceLoader} from './assets/Components/Pages/Host/HostVanPricing';
 import HostVanPhotos, {loader as hostVanPicsLoader} from './assets/Components/Pages/Host/HostVanPhotos';
 import NotFound from './assets/Components/Pages/NotFound';
@@ -42,7 +42,7 @@ const allRoutes = createBrowserRouter(createRoutesFromElements(
       <Route path='vanshost'  element={ <VansHost/> } loader={hostVanLoader}/>
 
       <Route path='vanshost/:id'  element={ <Vaninfo/> } loader={hostVanInfoLoader}>
-        <Route index element={ <HostVanDetail />} loader={hostVanDetsLoader}/>
+        <Route index element={ <HostVanDetail />} loader={hostVanDetailsLoader}/>
         <Route path='pricing' element={ <HostVanPricing />}  loader={hostVanPriceLoader}/>
         <Route path='photos' element={ <HostVanPhotos />} loader={hostVanPicsLoader}/>
       </Route>

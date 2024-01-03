@@ -10,7 +10,6 @@ const VansDetails = () => {
     const location = useLocation();
     const van = useLoaderData()
 
-   
    const search = location.state?.search || ""
    const type = location.state?.type || "all"
   return (

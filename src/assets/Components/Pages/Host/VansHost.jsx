@@ -1,22 +1,16 @@
 import React from 'react';
 import './stylesheets/VansHost.css';
 import { useEffect, useState } from 'react';
-import { Link} from 'react-router-dom';
-
-export async function loader(){
-  return null
+import { Link, useLoaderData} from 'react-router-dom';
+import { getHostVans } from '../../../../api'; //Imported gethostVans() function
+export function loader(){
+  return getHostVans()
 }
+
 
 const VansHost = () => {
   // Initialisation of state
-  const [vanHost, setVanHost] = useState([]);
-
-  //useEffect for api(mirage.js)  fetching
-  useEffect(() => {
-    fetch("/api/host/vans")
-      .then(res => res.json())
-        .then(data => setVanHost(data.vans))
-  }, []);
+  const vanHost = useLoaderData()
 
   // Mapping over data 
   const listElements = vanHost.map(van => (
@@ -35,15 +29,9 @@ const VansHost = () => {
     <section>
      <h1 className='host-vans-title'>Your listed vans here</h1>
      <div className='host-vans-list'>
-      {
-        vanHost.length > 0 ? (
-          <section>
-            {listElements}
-          </section>
-        ) : (
-          <h2>Loading...</h2>
-        )
-      }
+        <section>
+          {listElements}
+        </section>
      </div>
     </section>
   )
