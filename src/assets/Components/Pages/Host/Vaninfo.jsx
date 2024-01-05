@@ -1,11 +1,19 @@
 import React from 'react';
 import './stylesheets/Vansinfo.css';
 import { useState, useEffect } from 'react';
-import { Link, useParams , Outlet,NavLink, useLoaderData} from 'react-router-dom';
+import { Link, useParams , Outlet,NavLink, useLoaderData, redirect} from 'react-router-dom';
  import { getHostVans } from '../../../../api'; //Imported gethostVans() function
 
-export  function loader({ params }){
-  return getHostVans(params.id)
+export async function loader({ params }){
+  // Adding a "fake" authentification
+  const isLoggedIn = false;
+  if(!isLoggedIn) {
+    const response = redirect("/login")
+    response.body = true
+    return response;
+  };
+  const hostVansInfo = await getHostVans(params.id)
+  return hostVansInfo
 }
 
 const Vansinfo = () => {

@@ -1,10 +1,19 @@
 import React from 'react';
 import './stylesheets/VansHost.css';
 import { useEffect, useState } from 'react';
-import { Link, useLoaderData} from 'react-router-dom';
+import { Link, redirect, useLoaderData} from 'react-router-dom';
 import { getHostVans } from '../../../../api'; //Imported gethostVans() function
-export function loader(){
-  return getHostVans()
+
+export async function loader(){
+  // Adding a "fake" authentification
+  const isLoggedIn = false;
+  if(!isLoggedIn){
+    const response = redirect("/login")
+    response.body = true;
+    return response
+  }
+  const hostVans = await  getHostVans()
+  return hostVans
 }
 
 
