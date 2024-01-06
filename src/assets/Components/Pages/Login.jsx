@@ -1,11 +1,17 @@
 import React from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './stylesheets/Login.css'
+import { Link, useLoaderData } from 'react-router-dom';//Importation of useLoaderData for prompt msg display.
+import './stylesheets/Login.css';
+
+export function loginLoader({ request }){
+    return new URL(request.url).searchParams.get("message")
+};
+
 const Login = () => {
      //Initialisation of State & Function
     const [loginData, setLoginData] = useState({ email: "", password: ""});
-    
+    const message = useLoaderData();
+
     function handleChange(e){
         const {name, value} = e.target;
         setLoginData(prevData => {
@@ -21,10 +27,17 @@ const Login = () => {
         e.preventDefault();
         console.log(loginData)
     }
+
+    const style = {
+        color: "red",
+        textAlign: "center"
+    }
+    
   return (
     <section className='login-container'>
-        <div>
             <h1>Sign in to your account</h1>
+            {message && <h3 style={style}>{ message }</h3>}
+        <div>
             <form onSubmit={handleSubmit} className='login-form'>
                 <input 
                 type="email" 
