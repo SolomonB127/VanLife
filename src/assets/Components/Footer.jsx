@@ -1,10 +1,11 @@
 import React from 'react'
 import './Footer.css'
 const Footer = () => {
+  const year = new Date()
   return (
     <footer>
         <div>
-            &copy; 2023 #VANLIFE
+            &copy; {year.getFullYear()} #VANLIFE
         </div>
     </footer>
   )
