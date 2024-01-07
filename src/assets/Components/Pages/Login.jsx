@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { Link, useLoaderData, useNavigate, Form } from 'react-router-dom';//Importation of useLoaderData for prompt msg display.
+import { Link, useLoaderData, useNavigate, Form, redirect } from 'react-router-dom';//Importation of useLoaderData for prompt msg display.
 import './stylesheets/Login.css';
 
 import { loginUser } from '../../../api';
@@ -14,7 +14,14 @@ export async function action({ request }){
     const email = formData.get("email");
     const password = formData.get("password");
     const data = await loginUser({ email, password })
-    console.log(data)
+    localStorage.setItem("loggedin", true);
+
+    // Redirecting to host page after being loggedIn
+    if(localStorage){
+        const response = redirect("/host")
+        response.body = true
+        return response
+    }
     return null
 }
 

@@ -25,6 +25,9 @@ import Error from './assets/Components/Error';
 import Login, { loginLoader, action as loginAction } from './assets/Components/Pages/Login';
 
 import './server.js';
+
+// localStorage.removeItem("loggedin")
+
 import { requiredAuth } from './util';
 
 // Setting up data router
