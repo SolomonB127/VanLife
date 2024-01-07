@@ -8,31 +8,22 @@ export function loginLoader({ request }){
     return new URL(request.url).searchParams.get("message")
 };
 
+// Created an async action function in order to get data
 export async function action({ request }){
     const formData = await request.formData();
     const email = formData.get("email");
     const password = formData.get("password");
-    console.log(email, password)
+    const data = await loginUser({ email, password })
+    console.log(data)
     return null
 }
 
 const Login = () => {
      //Initialisation of State & Function
-    const [loginData, setLoginData] = useState({ email: "", password: ""});
     const [status, setStatus] = useState("idle");
     const [error, setError] = useState(null);
     const message = useLoaderData();
     const navigate = useNavigate()
-    function handleChange(e){
-        const {name, value} = e.target;
-        setLoginData(prevData => {
-            return{
-                ...prevData,
-                [name]: value
-            }
-        });
-        console.log(loginData)
-    };
 
     function handleSubmit(e){
         e.preventDefault();
@@ -57,20 +48,16 @@ const Login = () => {
             {message && <h3 style={style}>{ message }</h3>}
             {error && <h3 style={style}>{ error.message }</h3>}
         <div>
-            <Form method='post' className='login-form'>
+            <Form method='post'  className='login-form'>
                 <input 
                 type="email" 
                 name="email" 
                 placeholder='Enter your email'
-                onChange={handleChange}
-                value={loginData.email}
                 />
                 <input 
                 type="password" 
                 name="password" 
                 placeholder='Enter your password'
-                onChange={handleChange}
-                value={loginData.password}
                 />
                 <button disabled={ status === "submitting"}
                 >
