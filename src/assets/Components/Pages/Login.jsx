@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';//Importation of useLoaderData for prompt msg display.
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';//Importation of useLoaderData for prompt msg display.
 import './stylesheets/Login.css';
 
 import { loginUser } from '../../../api';
@@ -14,7 +14,7 @@ const Login = () => {
     const [status, setStatus] = useState("idle");
     const [error, setError] = useState(null);
     const message = useLoaderData();
-
+    const navigate = useNavigate()
     function handleChange(e){
         const {name, value} = e.target;
         setLoginData(prevData => {
@@ -31,7 +31,9 @@ const Login = () => {
         setStatus("submitting")
         setError(null)
         loginUser(loginData)
-            .then(data => console.log(data))
+            .then(data =>
+                    navigate("/host")
+                )
                 .catch(err => setError(err))
                     .finally(() => setStatus("idle"))
     }
