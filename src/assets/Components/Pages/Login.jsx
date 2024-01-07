@@ -55,7 +55,7 @@ const Login = () => {
             {message && <h3 style={style}>{ message }</h3>}
             {error && <h3 style={style}>{ error.message }</h3>}
         <div>
-            <Form method='post'  className='login-form'>
+            <Form method='post'  className='login-form' replace> {/* Added a replace prop inorder to navigete smoothly back & forth */}
                 <input 
                 type="email" 
                 name="email" 

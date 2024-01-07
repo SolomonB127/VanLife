@@ -26,7 +26,7 @@ import Login, { loginLoader, action as loginAction } from './assets/Components/P
 
 import './server.js';
 
-// localStorage.removeItem("loggedin")
+localStorage.removeItem("loggedin")
 
 import { requiredAuth } from './util';
 
