@@ -11,6 +11,7 @@ import GreenWonder from  './assets/Components/Images/Green-Wonder.png';
 createServer({
     models: {
         vans: Model,
+        users: Model
     },
 
     seeds(server) {
