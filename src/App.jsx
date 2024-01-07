@@ -22,7 +22,7 @@ import HostVanPricing from './assets/Components/Pages/Host/HostVanPricing';
 import HostVanPhotos from './assets/Components/Pages/Host/HostVanPhotos';
 import NotFound from './assets/Components/Pages/NotFound';
 import Error from './assets/Components/Error';
-import Login, { loginLoader } from './assets/Components/Pages/Login';
+import Login, { loginLoader, action as loginAction } from './assets/Components/Pages/Login';
 
 import './server.js';
 import { requiredAuth } from './util';
@@ -32,7 +32,7 @@ const allRoutes = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={ <Layout /> } errorElement={ <Error /> } >
     <Route  index element={ <Home /> } />
     <Route path='about'  element={ <About /> } />
-    <Route path='login'  element={ <Login /> } loader={loginLoader}/>
+    <Route path='login'  element={ <Login /> } loader={loginLoader} action={loginAction}/>
     <Route path='van'  element={ <Vans/> } loader={vanLoader}/>
     <Route path='van/:id'  element={ <VansDetails/> } loader={vanDetailsLoader}/>
     

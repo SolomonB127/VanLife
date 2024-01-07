@@ -1,12 +1,20 @@
 import React from 'react';
 import { useState } from 'react';
-import { Link, useLoaderData, useNavigate } from 'react-router-dom';//Importation of useLoaderData for prompt msg display.
+import { Link, useLoaderData, useNavigate, Form } from 'react-router-dom';//Importation of useLoaderData for prompt msg display.
 import './stylesheets/Login.css';
 
 import { loginUser } from '../../../api';
 export function loginLoader({ request }){
     return new URL(request.url).searchParams.get("message")
 };
+
+export async function action({ request }){
+    const formData = await request.formData();
+    const email = formData.get("email");
+    const password = formData.get("password");
+    console.log(email, password)
+    return null
+}
 
 const Login = () => {
      //Initialisation of State & Function
@@ -49,7 +57,7 @@ const Login = () => {
             {message && <h3 style={style}>{ message }</h3>}
             {error && <h3 style={style}>{ error.message }</h3>}
         <div>
-            <form onSubmit={handleSubmit} className='login-form'>
+            <Form method='post' className='login-form'>
                 <input 
                 type="email" 
                 name="email" 
@@ -68,7 +76,7 @@ const Login = () => {
                 >
                     {status === "submitting" ? "Signing in..." : "Sign in"}
                 </button>
-            </form>
+            </Form>
             <h4>Don't have an account? <Link to="signup">Sign-up</Link></h4>
         </div>
     </section>
