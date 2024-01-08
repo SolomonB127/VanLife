@@ -1,6 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
-import { Link, useLoaderData, useNavigate, Form, redirect, useActionData } from 'react-router-dom';//Importation of useLoaderData for prompt msg display.
+import { Link, useLoaderData, useNavigation, Form, redirect, useActionData } from 'react-router-dom';//Importation of useLoaderData for prompt msg display.
 import './stylesheets/Login.css';
 
 import { loginUser } from '../../../api';
@@ -34,21 +33,10 @@ export async function action({ request }){
 }
 
 const Login = () => {
-     //Initialisation of State & Function
-    const [status, setStatus] = useState("idle");
+     //Initialisation of State, Function & Utilities
     const errorMessage = useActionData();
     const message = useLoaderData();
-    const navigate = useNavigate()
-
-    function handleSubmit(e){
-        e.preventDefault();
-        setStatus("submitting")
-        loginUser(loginData)
-            .then(data =>
-                    navigate("/host")
-                )
-                .finally(() => setStatus("idle"))
-    }
+    const navigation = useNavigation();  // importing useNavigation inorder for easy transition when logged-in (Note: should NOT be mistaken for useNavigate)
 
     const style = {
         color: "red",
@@ -72,9 +60,9 @@ const Login = () => {
                 name="password" 
                 placeholder='Enter your password'
                 />
-                <button disabled={ status === "submitting"}
+                <button disabled={ navigation.state === "submitting"}
                 >
-                    {status === "submitting" ? "Signing in..." : "Sign in"}
+                    {navigation.state === "submitting" ? "Signing in..." : "Sign in"}
                 </button>
             </Form>
             <h4>Don't have an account? <Link to="signup">Sign-up</Link></h4>

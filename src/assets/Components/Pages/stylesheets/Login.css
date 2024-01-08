@@ -43,3 +43,7 @@
     color: white;
     font-family: "Inter", sans-serif;
 }
+.login-form > button:disabled {
+    background-color: #aaaaaa;
+    cursor: not-allowed;
+}

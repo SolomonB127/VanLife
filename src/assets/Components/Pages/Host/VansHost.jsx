@@ -6,7 +6,7 @@ import { getHostVans } from '../../../../api'; //Imported gethostVans() function
 
 export async function loader(){
   // Adding a "fake" authentification
-  const isLoggedIn = false;
+  const isLoggedIn = true;
   if(!isLoggedIn){
     const response = redirect("/login")
     response.body = true;
