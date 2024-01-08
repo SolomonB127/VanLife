@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { Link, useLoaderData, useNavigate, Form, redirect } from 'react-router-dom';//Importation of useLoaderData for prompt msg display.
+import { Link, useLoaderData, useNavigate, Form, redirect, useActionData } from 'react-router-dom';//Importation of useLoaderData for prompt msg display.
 import './stylesheets/Login.css';
 
 import { loginUser } from '../../../api';
@@ -13,35 +13,41 @@ export async function action({ request }){
     const formData = await request.formData();
     const email = formData.get("email");
     const password = formData.get("password");
-    const data = await loginUser({ email, password })
-    localStorage.setItem("loggedin", true);
 
-    // Redirecting to host page after being loggedIn
-    if(localStorage){
-        const response = redirect("/host")
-        response.body = true
-        return response
+    // Handling errors when using Actions (Note: useActionData Hook will be imported)
+    try {
+        const data = await loginUser({ email, password })
+        localStorage.setItem("loggedin", true);
+        // Redirecting to host page after being loggedIn
+        if(localStorage){
+            const response = redirect("/host")
+            response.body = true
+            return response
+        }
+        
+    } catch (error) {
+        // Throwing error just in-case
+        return error.message
     }
+
     return null
 }
 
 const Login = () => {
      //Initialisation of State & Function
     const [status, setStatus] = useState("idle");
-    const [error, setError] = useState(null);
+    const errorMessage = useActionData();
     const message = useLoaderData();
     const navigate = useNavigate()
 
     function handleSubmit(e){
         e.preventDefault();
         setStatus("submitting")
-        setError(null)
         loginUser(loginData)
             .then(data =>
                     navigate("/host")
                 )
-                .catch(err => setError(err))
-                    .finally(() => setStatus("idle"))
+                .finally(() => setStatus("idle"))
     }
 
     const style = {
@@ -53,7 +59,7 @@ const Login = () => {
     <section className='login-container'>
             <h1>Sign in to your account</h1>
             {message && <h3 style={style}>{ message }</h3>}
-            {error && <h3 style={style}>{ error.message }</h3>}
+            {errorMessage && <h3 style={style}>{ errorMessage }</h3>}
         <div>
             <Form method='post'  className='login-form' replace> {/* Added a replace prop inorder to navigete smoothly back & forth */}
                 <input 
