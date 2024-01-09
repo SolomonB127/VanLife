@@ -12,7 +12,7 @@ export async function action({ request }){
     const formData = await request.formData();
     const email = formData.get("email");
     const password = formData.get("password");
-    const pathname = new URL(request.url).searchParams.get("redirectTo") || "/host" // /Receive the request in utils.js and get search param of `redirectTo`, with a defaulf route asa `/host`*
+    const pathname = new URL(request.url).searchParams.get("redirectTo") || "/host" // Receive the request in utils.js and get search param of `redirectTo`, with a defaulf route asa `/host`*
 
     // Handling errors when using Actions (Note: useActionData Hook will be imported)
     try {
