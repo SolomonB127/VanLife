@@ -6,6 +6,10 @@ import './Header.css'
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
+    function logOut(){
+        localStorage.removeItem("loggedin") //Temporary logout button
+    }
+
     const toggleMenu = () => {
         setMenuOpen(prevMenuOpen => !prevMenuOpen);
     };
@@ -25,6 +29,7 @@ const Header = () => {
         <NavLink to="/login" className="login-link">
             <img src={Avatar} alt=""  width={25} className="login-icon"/>
         </NavLink>
+        <button onClick={logOut}>X</button>
         </nav>
     </header>
   )

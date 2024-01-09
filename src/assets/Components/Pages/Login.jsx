@@ -12,17 +12,16 @@ export async function action({ request }){
     const formData = await request.formData();
     const email = formData.get("email");
     const password = formData.get("password");
+    const pathname = new URL(request.url).searchParams.get("redirectTo") || "/host" // /Receive the request in utils.js and get search param of `redirectTo`, with a defaulf route asa `/host`*
 
     // Handling errors when using Actions (Note: useActionData Hook will be imported)
     try {
         const data = await loginUser({ email, password })
         localStorage.setItem("loggedin", true);
-        // Redirecting to host page after being loggedIn
-        if(localStorage){
-            const response = redirect("/host")
+        // Redirecting to pages in Host route after being loggedIn
+            const response = redirect(pathname)
             response.body = true
             return response
-        }
         
     } catch (error) {
         // Throwing error just in-case

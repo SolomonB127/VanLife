@@ -26,8 +26,6 @@ import Login, { loginLoader, action as loginAction } from './assets/Components/P
 
 import './server.js';
 
-localStorage.removeItem("loggedin")
-
 import { requiredAuth } from './util';
 
 // Setting up data router
@@ -39,16 +37,17 @@ const allRoutes = createBrowserRouter(createRoutesFromElements(
     <Route path='van'  element={ <Vans/> } loader={vanLoader}/>
     <Route path='van/:id'  element={ <VansDetails/> } loader={vanDetailsLoader}/>
     
-    <Route path='host'  element={ <HostLayout/> }  >
-      <Route index element={ <Dashboard /> }  loader={async() => requiredAuth()}/>
-      <Route path='income'  element={ <Income/> }  loader={async() => requiredAuth()}/>
-      <Route path='reviews'  element={ <Reviews/> } loader={async() => requiredAuth()}/>
+    {/* Passed the request object */}
+    <Route path='host'  element={ <HostLayout/> }  loader={async({request}) => await requiredAuth(request)} >
+      <Route index element={ <Dashboard /> }  loader={async({request}) => await requiredAuth(request)}/>
+      <Route path='income'  element={ <Income/> }   loader={async({request}) => await requiredAuth(request)}/>
+      <Route path='reviews'  element={ <Reviews/> }  loader={async({request}) => await requiredAuth(request)}/>
       <Route path='vanshost'  element={ <VansHost/> } loader={hostVanLoader}/>
 
       <Route path='vanshost/:id'  element={ <Vaninfo/> } loader={hostVanInfoLoader}>
-        <Route index element={ <HostVanDetail />} loader={async() => requiredAuth()}/>
-        <Route path='pricing' element={ <HostVanPricing />}  loader={async() => requiredAuth()}/>
-        <Route path='photos' element={ <HostVanPhotos />} loader={async() => requiredAuth()}/>
+        <Route index element={ <HostVanDetail />}  loader={async({request}) => await requiredAuth(request)}/>
+        <Route path='pricing' element={ <HostVanPricing />}   loader={async({request}) => await requiredAuth(request)}/>
+        <Route path='photos' element={ <HostVanPhotos />}  loader={async({request}) => await requiredAuth(request)}/>
       </Route>
 
     </Route>
