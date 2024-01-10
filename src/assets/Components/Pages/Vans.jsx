@@ -1,11 +1,12 @@
 import React from 'react';
 import './stylesheets/Vans.css';
-import { useState, useEffect } from 'react';
-import { Link, useSearchParams, useLoaderData  } from 'react-router-dom';
+import { useState} from 'react';
+import { Link, useSearchParams, useLoaderData, defer  } from 'react-router-dom';
 import { getVans } from '../../../api';
 
 export function loader(){
-  return getVans()
+  //Used the defer utility inorder to properly fetch data
+  return defer({vans:getVans()})
 }
 
 const Vans = () => {
