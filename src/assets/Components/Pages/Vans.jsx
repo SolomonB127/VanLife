@@ -1,6 +1,6 @@
 import React from 'react';
 import './stylesheets/Vans.css';
-import { useState} from 'react';
+import { useState, Suspense} from 'react';
 import { Link, useSearchParams, useLoaderData, defer, Await  } from 'react-router-dom';
 import { getVans } from '../../../api';
 
@@ -84,11 +84,21 @@ const Vans = () => {
     <main>
       <section className='vans--main'>
         <h1 style={ {textAlign:"center"} }>Explore our van options</h1>
-        {/* Imported the Await component inorder to display data when using the defer utility */}
-        <Await resolve={vansData.vans}>
-           {/* Called the renderVanElements function */}
-          {renderVanElement}
-        </Await>
+        {/* Imported & implemented Suspense Hook */}
+        <Suspense fallback={
+          <div class="loader-container"> 
+            <span></span> 
+            <span></span> 
+            <span></span>
+            <span></span>
+          </div>}
+        >
+          {/* Imported the Await component inorder to display data after the defer utility has been used */}
+          <Await resolve={vansData.vans}>
+            {/* Called the renderVanElements function */}
+            {renderVanElement}
+          </Await>
+        </Suspense>
       </section>
     </main>
   )
