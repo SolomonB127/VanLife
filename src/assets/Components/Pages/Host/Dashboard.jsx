@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, defer, Await, useLoaderData } from "react-router-dom"
 import { getHostVans } from '../../../../api';
 import { requiredAuth } from '../../../../util'
-
+import Star from '../../Images/Group 279.png'
 export async function loader({ request }){
   await requiredAuth(request)
   return defer({vans: getHostVans()})
@@ -40,7 +40,7 @@ const Dashboard = () => {
     </section>
     <section className="host-dashboard-reviews">
         <h2>Review score</h2>
-       {/* <img src={Star} alt="" className='star' /> */}
+       <img src={Star} alt="" className='star' />
         <p>
             <span>5.0</span>/5
         </p>
