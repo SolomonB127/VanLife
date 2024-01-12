@@ -1,6 +1,5 @@
 import React from 'react';
 import './stylesheets/VansHost.css';
-import { useEffect, useState } from 'react';
 import { Await, Link, defer, redirect, useLoaderData} from 'react-router-dom';
 import { getHostVans } from '../../../../api'; //Imported gethostVans() function
 import { requiredAuth } from '../../../../util';

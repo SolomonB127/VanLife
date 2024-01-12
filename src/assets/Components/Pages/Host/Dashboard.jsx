@@ -18,7 +18,7 @@ const Dashboard = () => {
                 <h3>{van.name}</h3>
                 <p>${van.price}/day</p>
             </div>
-            <Link to={`vans/${van.id}`}>View</Link>
+            <Link to={`vanshost/${van.id}`}>View</Link>
         </div>
     ));
     return(
@@ -49,7 +49,7 @@ const Dashboard = () => {
     <section className="host-dashboard-vans">
         <div className="top">
             <h2>Your listed vans</h2>
-            <Link to="vans">View all</Link>
+            <Link to="vanshost">View all</Link>
         </div>
         <React.Suspense fallback= {<div class="loader-container"> 
             <span></span> 

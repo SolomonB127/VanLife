@@ -1,6 +1,6 @@
 import React from 'react';
 import './stylesheets/Vans.css';
-import { useState, Suspense} from 'react';
+import { Suspense} from 'react';
 import { Link, useSearchParams, useLoaderData, defer, Await  } from 'react-router-dom';
 import { getVans } from '../../../api';
 
@@ -12,7 +12,6 @@ export function loader(){
 const Vans = () => {
   // Declaration of Hooks
   // Initialisation of state
-  const [error, setError] = useState(null);
   // Used useLoaderData for data fetching instead of useState & Effect
   const vansData = useLoaderData();
 
@@ -33,10 +32,6 @@ const Vans = () => {
       return prevParams
     })
   };
-
-    if (error){
-      return <h1  aria-live='assertive'>There was an error: {error.message}</h1>
-    }
 
     // Created a renderVanElement function inorder to render vans when using theAwait component
     function renderVanElement(vansData){
