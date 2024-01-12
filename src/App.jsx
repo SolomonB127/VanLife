@@ -12,7 +12,7 @@ import About from './assets/Components/Pages/About';
 import Vans, { loader as vanLoader } from './assets/Components/Pages/Vans';
 import VansDetails, {loader as vanDetailsLoader} from './assets/Components/Pages/VansDetails';
 import HostLayout from './assets/Components/HostLayout';
-import Dashboard from './assets/Components/Pages/Host/Dashboard';
+import Dashboard, {loader as dashBoardLoader} from './assets/Components/Pages/Host/Dashboard';
 import Income from './assets/Components/Pages/Host/Income';
 import Reviews from './assets/Components/Pages/Host/Reviews';
 import VansHost, {loader as hostVanLoader} from './assets/Components/Pages/Host/VansHost';
@@ -39,7 +39,7 @@ const allRoutes = createBrowserRouter(createRoutesFromElements(
     
     {/* Passed the request object */}
     <Route path='host'  element={ <HostLayout/> }  loader={async({request}) => await requiredAuth(request)} >
-      <Route index element={ <Dashboard /> }  loader={async({request}) => await requiredAuth(request)}/>
+      <Route index element={ <Dashboard /> }  loader= {dashBoardLoader}/>
       <Route path='income'  element={ <Income/> }   loader={async({request}) => await requiredAuth(request)}/>
       <Route path='reviews'  element={ <Reviews/> }  loader={async({request}) => await requiredAuth(request)}/>
       <Route path='vanshost'  element={ <VansHost/> } loader={hostVanLoader}/>
