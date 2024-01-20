@@ -24,7 +24,7 @@ import NotFound from './assets/Components/Pages/NotFound';
 import Error from './assets/Components/Error';
 import Login, { loginLoader, action as loginAction } from './assets/Components/Pages/Login';
 
-import './server.js';
+// import './server.js';
 
 import { requiredAuth } from './util';
 
