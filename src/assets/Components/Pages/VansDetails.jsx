@@ -2,9 +2,9 @@ import React from 'react';
 import './stylesheets/VanDetails.css';
 import { Link, useLocation, useLoaderData, defer,Await } from 'react-router-dom';  // Imported useParams & LoaderData
 import {Suspense } from 'react';      // Imported useState & Effect
-import { getVans } from '../../../api'; //Imported getVans() function
+import { getVan } from '../../../api'; //Imported getVans() function
 export function loader({ params }){
-    return defer({vanDetails: getVans(params.id)})
+    return defer({vanDetails: getVan(params.id)})
   }
 const VansDetails = () => {
     const location = useLocation();

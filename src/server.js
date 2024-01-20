@@ -28,6 +28,7 @@ createServer({
         this.namespace = "api"
         this.logging = false
         this.timing = 1000 // Added a 1s delay
+        this.passthrough("https://firestore.googleapis.com/**") //to allow mirage to pass out going request to the url specified
 
         this.get("/vans", (schema, request) => {
             //return new Response(400, {}, {error: "Error fetching data"})
