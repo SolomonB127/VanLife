@@ -1,33 +1,58 @@
-/* Header */
-
-header {
-    display: flex;
-    align-items: center;
-    padding-block: 10px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .header-container {
     background-color: #0f172a;
     position: sticky;
     top: 0;
-}
-
-header .site-logo {
-    color: #fff;
-    margin-right: auto;
-    text-transform: uppercase;
-    font-weight: 900;
-    font-size: 25px;
-}
-
-header a {
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.05rem 2rem;
+  }
+  
+  .site-logo a {
     text-decoration: none;
     color: #fff;
+    text-transform: uppercase;
+    font-size: 25px;
     font-weight: 600;
-    padding: 5px 20px;
-}
-
-header a:hover {
+  }
+  
+  .openNav {
+    display: none;
+    color: #fff;
+  }
+  
+  nav a {
+    margin: 0 1.3rem;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  nav a:hover {
     text-decoration: underline;
-}
-.login-link img{
+  }
+  
+  .login-link img {
     position: relative;
     top: 8px;
-}
+  }
+  
+  @media all and (max-width: 768px) {
+    .openNav {
+      display: initial;
+      cursor: pointer;
+    }
+  
+    nav a {
+      padding: 2rem 0; /* Adds more vertical spacing between links */
+    }
+  }
+  
