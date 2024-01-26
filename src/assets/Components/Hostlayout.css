@@ -1,6 +1,14 @@
 .host-nav {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+@media (max-width: 600px) {
+    .host-nav {
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
 
 .host-nav a {
@@ -8,17 +16,11 @@
     color: #4D4D4D;
     font-weight: 500;
     padding: 5px 20px;
+    flex: 1 0 auto;
 }
 
 .host-nav a:hover {
     color: #161616;
     text-decoration: underline;
     font-weight: 600;
-}
-
-/* Add this media query for mobile devices */
-@media (max-width: 768px) {
-    .host-nav {
-       padding-left: 2px;
-    }
 }
